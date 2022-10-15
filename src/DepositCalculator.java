@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
 public class DepositCalculator {
-    double calculateComplexPercent(double amount, double yearRate, int period) {
-        double pay = amount * Math.pow((1 + yearRate / 12), 12 * period);
+    double calculateComplexPercent(double amount, double rate, int period) {
+        double pay = amount * Math.pow((1 + rate / 12), 12 * period);
         return round(pay, 2);
     }
 
-    double calculateSimplePercent(double amount, double yearRate, int period) {
-        return round(amount + amount * yearRate * period, 2);
+    double calculateSimplePercent(double amount, double rate, int period) {
+        return round(amount + amount * rate * period, 2);
     }
 
-    double round(double value, int places) {
-        double ScaLe = Math.pow(10, places);
-        return Math.round(value * ScaLe) / ScaLe;
+    double round(double value, int precision) {
+        double scale = Math.pow(10, precision);
+        return Math.round(value * scale) / scale;
     }
 
     void calculateDeposit() {
